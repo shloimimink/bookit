@@ -1,7 +1,7 @@
 import Heading from "@/components/Heading";
+import BookingForm from "@/components/BookingForm";
 import Image from "next/image";
 import Link from "next/link";
-import BookingForm from "@/components/BookingForm";
 import { FaChevronLeft } from "react-icons/fa";
 import getSingleRoom from "@/app/actions/getSingleRoom";
 
@@ -35,7 +35,7 @@ const RoomPage = async ({ params }) => {
         <div className="flex flex-col sm:flex-row sm:space-x-6">
           <Image
             src={imageSrc}
-            alt={room.image}
+            alt={room.name}
             width={400}
             height={100}
             className="w-full sm:w-1/3 h-64 object-cover rounded-lg"
@@ -57,20 +57,17 @@ const RoomPage = async ({ params }) => {
                 {room.availability}
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Price:</span>
+                <span className="font-semibold text-gray-800">Price:</span>$
                 {room.price_per_hour}/hour
               </li>
               <li>
                 <span className="font-semibold text-gray-800">Address:</span>{" "}
                 {room.address}
               </li>
-              <li>
-                <span className="font-semibold text-gray-800">Amenities:</span>{" "}
-                {room.amenities}
-              </li>
             </ul>
           </div>
         </div>
+
         <BookingForm room={room} />
       </div>
     </>

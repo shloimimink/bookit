@@ -22,11 +22,11 @@ async function bookRoom(previousState, formData) {
 
     if (!user) {
       return {
-        error: "You must be loggen id to book a room.",
+        error: "You must be logged in to book a room",
       };
     }
 
-    // Extrasct date and time from the formData
+    // Extract date and time from the formData
     const checkInDate = formData.get("check_in_date");
     const checkInTime = formData.get("check_in_time");
     const checkOutDate = formData.get("check_out_date");
@@ -46,7 +46,7 @@ async function bookRoom(previousState, formData) {
 
     if (!isAvailable) {
       return {
-        error: "This room is already booked for the selected time!",
+        error: "This room is already booked for the selected time",
       };
     }
 
@@ -65,7 +65,7 @@ async function bookRoom(previousState, formData) {
       bookingData
     );
 
-    // revalidate cache
+    // Revalidate cache
     revalidatePath("/bookings", "layout");
 
     return {
@@ -74,7 +74,7 @@ async function bookRoom(previousState, formData) {
   } catch (error) {
     console.log("Failed to book room", error);
     return {
-      error: "Somthing went wrong booking the room",
+      error: "Something went wrong booking the room",
     };
   }
 }

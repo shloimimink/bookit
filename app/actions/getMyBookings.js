@@ -20,7 +20,7 @@ async function getMyBookings() {
 
     if (!user) {
       return {
-        error: "You must be loggen in to view bookings",
+        error: "You must be logged in to view bookings",
       };
     }
 
